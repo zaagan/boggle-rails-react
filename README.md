@@ -58,13 +58,13 @@ Basically, The player searches for words that can be constructed from the letter
 
 ## License
 
-MIT © [Zaagan](github.com/zaagan/) 
+MIT © [Zaagan](https://github.com/zaagan) 
 
 
 
 ## Author
 
-- **Ozesh Thapa** - [@Zaagan](github.com/zaagan/)  | [DebuggersHub](https://www.debuggershub.com/)
+- **Ozesh Thapa** - [@Zaagan](https://github.com/zaagan)  | [DebuggersHub](https://www.debuggershub.com/)
 
 
 
