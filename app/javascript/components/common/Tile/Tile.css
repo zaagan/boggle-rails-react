@@ -1,0 +1,47 @@
+.row button {
+  /* width: 52px;
+  height: 52px; */
+  width: 42px;
+  height: 42px;
+  border-radius: 5px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  -webkit-transition: background 0.5s; /* Safari */
+  transition: background 0.5s;
+  outline: none;
+  text-transform: uppercase;
+}
+
+.tile {
+  background: #fff;
+  border: solid 1px #757575;
+  box-shadow: 2px 2px 5px rgba(255, 204, 128, 0.25);
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+  color: #18252e;
+  width: 100%;
+  user-select: none;
+}
+
+.tile:hover {
+  background: #fcf6ea;
+  cursor: pointer;
+}
+
+.tile-selected {
+  background: #ff9800;
+  border: solid 1px #fb8c00;
+  box-shadow: inset 2px 2px 5px rgba(223, 121, 10, 0.7);
+  width: 100%;
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+.tile-selected:hover {
+  background: #ef6c00;
+  cursor: pointer;
+}

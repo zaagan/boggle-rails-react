@@ -1,5 +1,12 @@
-import * as actionTypes from "../types";
+import {
+  NEW_GAME_INIT,
+  NEW_GAME_SUCCESS,
+  NEW_GAME_FAILURE,
+  BACK_TO_HOME
+} from "../types";
 import config from "../../constants/config";
+
+import { getCurrentUser } from "../../helpers";
 
 const initialState = {
   ...config,
@@ -10,11 +17,26 @@ const initialState = {
       trials: 2,
       level: 3
     }
-  ]
+  ],
+  inGame: false,
+  currentUser: getCurrentUser(),
+  stages: []
 };
 
 const game = (state = initialState, action) => {
   switch (action.type) {
+    case NEW_GAME_INIT:
+      return { inGame: true, currentUser: action.user };
+
+    case NEW_GAME_SUCCESS:
+      return { inGame: true, currentUser: action.user };
+
+    case NEW_GAME_FAILURE:
+      return { inGame: false, currentUser: null };
+
+    case BACK_TO_HOME:
+      return { inGame: false, currentUser: null };
+
     default:
       return state;
   }

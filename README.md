@@ -20,7 +20,7 @@ Getting the monster running [TO DO] ...
 
 
 
-Basically, The player searches for words that can be constructed from the letters of sequentially adjacent cubes, where "adjacent" cubes are those  horizontally, vertically, and diagonally neighboring. Words must be at  least three letters long, may include singular and plural (or other derived forms) separately. The application records all the words that is submitted by the players. After **three minutes** have elapsed, the application stops the player from the game play and the game enters the scoring phase. 
+Basically, The player searches for words that can be constructed from the letters of sequentially adjacent cubes, where "adjacent" cubes are those  horizontally, vertically and diagonally neighboring. Words must be at  least three letters long, may include singular and plural (or other derived forms) separately. The application records all the words that is submitted by the players. After **three minutes** have elapsed, the application stops the player from the game play and the game enters the scoring phase. 
 
 
 
@@ -69,3 +69,10 @@ MIT © [Zaagan](https://github.com/zaagan)
 
 
 ## Credits and References
+
+- [Wikipedia Definition](https://en.wikipedia.org/wiki/Boggle)
+- [JS-Boggle-Game](https://github.com/zhouyuhang/JS-Boggle-Game)
+- [CodePen - Sample](https://codepen.io/jbalesteri/pen/yYeozq) |
+- [For the User Interface - CodePen - Sample 2](https://codesandbox.io/s/github/leannezhang/boggle-game/tree/master/?from-embed)
+- [Joe Taylor's CSS3 Hourglass](https://codepen.io/joekarma/pen/gjxyF)
+

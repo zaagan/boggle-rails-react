@@ -1,0 +1,39 @@
+.nav-bar {
+  float: left;
+  width: 100%;
+}
+
+.navbar-left {
+  float: left;
+  width: 42%;
+  padding-left: 20px;
+  margin-left: 15px;
+}
+
+.navbar-right {
+  float: right;
+  margin-right: 15px;
+  padding-right: 20px;
+}
+.game-player {
+  text-transform: capitalize;
+  color: #ef6c00;
+  font-weight: 600;
+}
+
+.game-stopwatch {
+  text-transform: capitalize;
+  float: right;
+}
+
+.timer-green {
+  color: green;
+}
+.timer-red {
+  color: red;
+  font-weight: 600;
+}
+.timer-yellow {
+  color: yellowgreen;
+  font-weight: bold;
+}

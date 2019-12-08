@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+
+/* Global */
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  color: #18252e;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 0.8em;
+}
+
+.container {
+  width: 630px;
+  margin: 0 auto;
+  /* top: 40%;
+  left: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%); */
+}
+
+/* Header */
+.header {
+  width: 100%;
+}
+
+.header-logo {
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  padding: 20px 0;
+}

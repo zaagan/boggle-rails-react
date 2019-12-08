@@ -1,0 +1,12 @@
+
+- Setup ROR Development Environment [DONE]
+- Setup Project and Resources [DONE]
+- Implement Basic React Routings in Rails Project [DONE]
+- JavaScript Implentation of The Boggle Game [DONE]
+- Add Basic Feature Stuffs [----]
+- Setup and Configure Rails API [---]
+- Integrate System Interaction via API [---]
+- Write Tests for React [---]
+- Write Tests for the API [---]
+- Host in Heroku [---]
+- Update Readme [---]

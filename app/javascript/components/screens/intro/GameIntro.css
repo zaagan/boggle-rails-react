@@ -1,0 +1,20 @@
+
+.game-intro {
+  padding: 20px;
+  margin: 0;
+  float: left;
+  text-transform: none;
+}
+.row {
+  margin: 0;
+}
+.clear {
+  clear: both;
+}
+
+.input-element {
+  width: 50%;
+  padding: 15px 22px;
+  margin: 10px 5px;
+  box-sizing: border-box;
+}

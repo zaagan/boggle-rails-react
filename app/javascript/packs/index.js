@@ -9,7 +9,10 @@ import configureStore from "../store/configureStore";
 
 const store = configureStore();
 
-import App from './app';
+import App from "./app";
+
+// import 'bootstrap/dist/css/bootstrap.css';
+import "./index.css";
 
 const app = (
   <Provider store={store}>

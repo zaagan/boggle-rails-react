@@ -1,0 +1,17 @@
+/* Game Area */
+
+.game-area {
+  padding: 20px;
+  margin: 0;
+  float: left;
+  width: 300px;
+}
+.timesand-container {
+  position: fixed;
+  right: 5%;
+  top: 25%;
+}
+
+.clear {
+  clear: both;
+}
