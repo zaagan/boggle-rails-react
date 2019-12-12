@@ -17,7 +17,8 @@ class GameIntro extends React.Component {
 
     this.state = {
       UserName: "",
-      stageID: 1
+      stageID: 1,
+      boardSize: 4
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -34,12 +35,12 @@ class GameIntro extends React.Component {
 
     this.setState({ submitted: true });
 
-    const { UserName, stageID } = this.state;
+    const { UserName, stageID, boardSize} = this.state;
     const { dispatch } = this.props;
     const history = this.props.history;
 
     if (UserName && stageID) {
-      dispatch(gameAction.initNewGame(UserName, stageID, history));
+      dispatch(gameAction.initNewGame(UserName, stageID,boardSize, history));
     }
   }
 
@@ -69,7 +70,7 @@ class GameIntro extends React.Component {
               </p>
             </div>
 
-            <h2>Are you ready to try it out ?</h2>
+            <h2>Are you ready to play ?</h2>
 
             <input
               type="text"
@@ -80,6 +81,17 @@ class GameIntro extends React.Component {
               aria-describedby="basic-addon1"
               onChange={this.handleChange}
             />
+
+            <div className="input-selector">
+              <label className="input-label">Choose a board size :</label>
+              
+              <select  name="boardSize"
+               className="input-element" value={this.state.boardSize} onChange={this.handleChange}>
+                <option value="4"> 4 x 4</option>
+                <option value="5"> 5 x 5 </option>
+                <option value="6"> 6 x 6</option>
+              </select>
+            </div>
 
             <Button handleSubmit={this.handleSubmit} label="START GAME" />
           </form>
@@ -92,11 +104,7 @@ class GameIntro extends React.Component {
 }
 
 function mapStateToProps(state) {
-  //debugger;
   return state;
-  // const { loggingIn } = state.authentication;
-  // const alert = state.alert;
-  // return { loggingIn, alert };
 }
 
 GameIntro = connect(mapStateToProps)(GameIntro);

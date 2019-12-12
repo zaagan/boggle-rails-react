@@ -26,16 +26,16 @@ const initialState = {
 const game = (state = initialState, action) => {
   switch (action.type) {
     case NEW_GAME_INIT:
-      return { inGame: true, currentUser: action.user };
+      return {...state, inGame: true, currentUser: action.user };
 
     case NEW_GAME_SUCCESS:
-      return { inGame: true, currentUser: action.user };
+      return {...state, inGame: true, currentUser: action.user };
 
     case NEW_GAME_FAILURE:
-      return { inGame: false, currentUser: null };
+      return {...state, inGame: false, currentUser: null };
 
     case BACK_TO_HOME:
-      return { inGame: false, currentUser: null };
+      return {...state, inGame: false, currentUser: null };
 
     default:
       return state;

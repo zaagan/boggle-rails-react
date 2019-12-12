@@ -32,6 +32,8 @@ Basically, The player searches for words that can be constructed from the letter
 
 - Node : v12.13.1 
 
+- npm : 6.6.0
+
 - React JS 16.12.0
 
   

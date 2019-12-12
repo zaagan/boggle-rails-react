@@ -111,7 +111,6 @@ class Stage1 extends Component {
 
   // Adds Current Word to the Word List
   handleSubmit(word) {
-    // TODO: Check if Current Word is valid
 
     // Check if word is valid
     if (word.length < 3 || this.state.wordScoreList[word]) {

@@ -14,7 +14,7 @@ export const gameAction = {
   backToHome
 };
 
-function initNewGame(userName, stageID, history) {
+function initNewGame(userName, stageID,boardSize, history) {
   return dispatch => {
     dispatch(request({ userName, stageID })); // <-- REQUEST ACTION
 

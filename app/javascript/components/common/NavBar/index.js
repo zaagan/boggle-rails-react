@@ -27,8 +27,8 @@ class NavBar extends React.Component {
   }
 
   render() {
-    let { currentUser } = this.props;
-
+    let { currentUser , timeLimit} = this.props;
+    
     return (
       <div className="nav-bar">
         <div className="navbar-left">
@@ -48,12 +48,14 @@ class NavBar extends React.Component {
             }}
           />
 
-          <ReactStopwatch
+{
+  timeLimit && <React.Fragment>
+    <ReactStopwatch
             seconds={0}
             minutes={0}
             hours={0}
             // limit={"00:00:10"}
-            limit={this.props.timeLimit}
+            limit={timeLimit}
             onChange={({ hours, minutes, seconds }) => {
               
             }}
@@ -70,6 +72,9 @@ class NavBar extends React.Component {
             }}
           />
           <ReactTooltip />
+  </React.Fragment>
+}
+          
         </div>
 
         <div className="navbar-right">
@@ -84,7 +89,10 @@ class NavBar extends React.Component {
 
 function mapStateToProps(state) {
   const { currentUser, timeLimit } = state.game;
+  
+  console.log('Time Limit: ',timeLimit);
   return { currentUser, timeLimit };
+
 }
 
 export default compose(withRouter, connect(mapStateToProps))(NavBar);

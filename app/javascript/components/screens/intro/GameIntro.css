@@ -12,9 +12,19 @@
   clear: both;
 }
 
+
+.input-selector {
+  display: grid;
+  margin: 20px 0;
+}
 .input-element {
   width: 50%;
   padding: 15px 22px;
   margin: 10px 5px;
   box-sizing: border-box;
+}
+
+
+.input-label{
+
 }
