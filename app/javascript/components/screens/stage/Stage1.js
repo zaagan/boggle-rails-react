@@ -24,6 +24,9 @@ import {
   ROUTE_STAGE1
 } from "../../../constants/routeNames";
 import { gameAction } from "../../../store/actions";
+import { MessageType, InGameMessageType } from "../../../constants/messageType";
+
+import { showMessage, GenerateMessage } from "../../../helpers";
 
 class Stage1 extends Component {
   constructor(props) {
@@ -38,16 +41,22 @@ class Stage1 extends Component {
       board: this.initBoard,
       currentWord: "",
       currentWordPosition: [],
-      wordScoreList: {}
     };
 
     this.onUserAction = this.onUserAction.bind(this);
   }
 
+
+
+  backtoHome = () => {
+    const { dispatch } = this.props;
+    dispatch(gameAction.clearGame());
+  }
+
   onUserAction(item) {
     switch (item) {
       case NB_HOME:
-        this.props.dispatch(gameAction.backToHome());
+        this.backtoHome();
         // this.props.history.push(ROUTE_INTRO);
         break;
 
@@ -112,27 +121,41 @@ class Stage1 extends Component {
     }
   }
 
-  // Adds Current Word to the Word List
-  handleSubmit(word) {
 
-    // Check if word is valid
-    if (word.length < 3 || this.state.wordScoreList[word]) {
-      return;
-    }
-    // TODO: Calculate score
-    const score = calculateScore(word);
-
-    // TODO: Unselect all tiles.
+  clearStage = () => {
     const clearedBoard = this.initBoard;
-
-    // TODO: Add to the Word List
     this.setState({
-      // wordScoreList: Object.assign(this.state.wordScoreList, {[word]: score}),
-      wordScoreList: { ...this.state.wordScoreList, [word]: score },
       currentWord: "",
       currentWordPosition: [],
       board: clearedBoard
     });
+  }
+
+
+  // Adds Current Word to the Word List
+  handleSubmit(word) {
+
+    let currentList = this.props.wordScoreList;
+
+    // Check if word is valid
+    if (word.length < 3) {
+      return;
+    }
+
+    if (currentList && currentList[word]) {
+      showMessage(MessageType.ERROR, GenerateMessage(InGameMessageType.EXISTS, ''));
+      this.clearStage();
+      return;
+    }
+
+    const { dispatch } = this.props;
+
+    dispatch(gameAction.evaluateWord({
+      word: word
+    }, () => {
+      this.clearStage();
+
+    }));
   }
 
   render() {
@@ -155,15 +178,7 @@ class Stage1 extends Component {
           />
         </div>
 
-        <ScoreBox
-          wordScoreList={this.state.wordScoreList}
-          totalScore={Object.values(this.state.wordScoreList).reduce(
-            (totalScore, next) => {
-              return totalScore + next;
-            },
-            0
-          )}
-        />
+        <ScoreBox />
         <div className="timesand-container">
           <TimeSand />
         </div>
@@ -175,8 +190,8 @@ class Stage1 extends Component {
 }
 
 function mapStateToProps(state) {
-  const { currentUser } = state.game;
-  return { currentUser };
+  const { currentUser, wordScoreList } = state.game;
+  return { currentUser, wordScoreList };
 }
 
 Stage1 = connect(mapStateToProps)(Stage1);

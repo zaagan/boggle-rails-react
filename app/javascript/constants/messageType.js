@@ -4,7 +4,7 @@ export const MessageType = {
     ERROR: 'error',
     WARNING: 'warn',
     INFO: 'info',
-    CUSTOM: 'custom'
+    CUSTOM: 'custom',
 }
 
 /**
@@ -13,6 +13,7 @@ export const MessageType = {
 export const InGameMessageType = {
     SUCCESS: 'success',
     ERROR: 'error',
+    EXISTS: 'exists',
     GREETING: 'greeting',
     END: 'end'
 }

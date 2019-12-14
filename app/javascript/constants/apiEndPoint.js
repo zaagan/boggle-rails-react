@@ -4,7 +4,7 @@ export default {
         INIT: GenerateApiUrl('games'),
         NEW_GAME: GenerateApiUrl('games/new'),
         CROSS_CHECK: GenerateApiUrl('games/crosscheck'),
-        SCORES: GenerateApiUrl('games/evaluate')
+        EVALUATE: GenerateApiUrl('games/evaluate')
     },
 }
 

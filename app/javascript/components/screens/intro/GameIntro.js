@@ -1,11 +1,9 @@
 import React from "react";
+
 import Aux from "../../../hoc/_Aux";
 import { connect } from "react-redux";
 
 import Button from "../../common/Button";
-
-// import { Link } from "react-router-dom";
-// import { ROUTE_STAGE1 } from "../../../constants/routeNames";
 
 import "./GameIntro.css";
 
@@ -97,6 +95,7 @@ class GameIntro extends React.Component {
                 <option value="6"> 6 x 6</option>
               </select>
             </div>
+
 
             <Button handleSubmit={this.handleSubmit} label="START GAME" />
           </form>

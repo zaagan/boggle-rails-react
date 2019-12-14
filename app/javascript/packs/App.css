@@ -32,3 +32,6 @@ p {
   display: block;
   padding: 20px 0;
 }
+.boggle-msg{
+  text-transform: initial;
+}

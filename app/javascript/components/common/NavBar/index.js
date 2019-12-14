@@ -27,8 +27,8 @@ class NavBar extends React.Component {
   }
 
   render() {
-    let { currentUser , timeLimit} = this.props;
-    
+    let { currentUser, timeLimit } = this.props;
+
     return (
       <div className="nav-bar">
         <div className="navbar-left">
@@ -48,33 +48,33 @@ class NavBar extends React.Component {
             }}
           />
 
-{
-  timeLimit && <React.Fragment>
-    <ReactStopwatch
-            seconds={0}
-            minutes={0}
-            hours={0}
-            // limit={"00:00:10"}
-            limit={timeLimit}
-            onChange={({ hours, minutes, seconds }) => {
-              
-            }}
-            onCallback={() => this.routeChange()}
-            render={({ formatted, hours, minutes, seconds }) => {
-              var extraClass = "timer-green";
-              if (minutes > 2) extraClass = "timer-red";
-              else if (minutes > 1 && minutes < 2) extraClass = "timer-yellow";
-              return (
-                <span className={"game-stopwatch " + extraClass}>
-                  Elapsed: {formatted}
-                </span>
-              );
-            }}
-          />
-          <ReactTooltip />
-  </React.Fragment>
-}
-          
+          {
+            timeLimit && <React.Fragment>
+              <ReactStopwatch
+                seconds={0}
+                minutes={0}
+                hours={0}
+                // limit={"00:00:10"}
+                limit={timeLimit}
+                onChange={({ hours, minutes, seconds }) => {
+
+                }}
+                onCallback={() => this.routeChange()}
+                render={({ formatted, hours, minutes, seconds }) => {
+                  var extraClass = "timer-green";
+                  if (minutes > 2) extraClass = "timer-red";
+                  else if (minutes > 1 && minutes < 2) extraClass = "timer-yellow";
+                  return (
+                    <span className={"game-stopwatch " + extraClass}>
+                      Elapsed: {formatted}
+                    </span>
+                  );
+                }}
+              />
+              <ReactTooltip />
+            </React.Fragment>
+          }
+
         </div>
 
         <div className="navbar-right">
@@ -89,8 +89,8 @@ class NavBar extends React.Component {
 
 function mapStateToProps(state) {
   const { currentUser, timeLimit } = state.game;
-  
-  console.log('Time Limit: ',timeLimit);
+
+  console.log('Time Limit: ', timeLimit);
   return { currentUser, timeLimit };
 
 }

@@ -1,0 +1,42 @@
+.game-scores {
+    padding: 20px;
+    margin: 0;
+    float: left;
+    text-transform: none;
+    width: 100%;
+    text-align: center;
+
+}
+
+.result-table {
+    width: 100%;
+    font-size: 18px;
+}
+
+
+.result-table tr:nth-child(2n+1) {
+    background-color: goldenrod;
+}
+
+.result-table th {
+    width: 40%;
+    text-align: left;
+    vertical-align: top;
+    padding: 8px;
+    margin: 10px;
+}
+
+.game-scores-chart {
+    margin: 30px;
+
+}
+.game-scores .action-button {
+    font-size: 39px;
+}
+.action-bar {
+    display: grid;
+}
+.game-scores .action-button {
+    font-size: 39px;
+    margin-right: 0;
+}

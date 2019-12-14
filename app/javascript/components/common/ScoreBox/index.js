@@ -7,7 +7,8 @@ const ScoreBox = props => {
 
   return (
     <div className="score-box">
-      <WordScoreList wordScoreList={wordScoreList} totalScore={totalScore} />
+      {/* <WordScoreList wordScoreList={wordScoreList} totalScore={totalScore} /> */}
+      <WordScoreList />
     </div>
   );
 };
