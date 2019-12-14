@@ -1,0 +1,6 @@
+
+MIN_WORD_LENGTH = 3
+MAX_WORD_LENGTH = 10
+
+
+BOGGLE_STRING = "aaafrsaaeeeeaafirsadennnaeeeemaeegmuaegmnnafirsybjkqxzccenstceiiltceilptceipstddhnotdhhlordhlnordhlnoreiiittemotttensssufiprsygorrvwiprrrynootuwooottu"

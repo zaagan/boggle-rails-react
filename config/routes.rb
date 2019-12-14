@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   namespace :v1, defaults: { format: "json" } do
     get "games", to: "games#index"
     get "games/new", to: "games#new"
-    get "games/crosscheck", to: "games#crosscheck"
-    get "games/scores", to: "games#scores"
     get "games/evaluate", to: "games#evaluate"
-
+    
+    # get "games/crosscheck", to: "games#crosscheck"
+    # get "games/scores", to: "games#scores"
   end
 
   # Formward root to HomeController#index
@@ -17,9 +17,8 @@ Rails.application.routes.draw do
   # Except for ajax requests and HTML Mime types
   # This excludes the ('/') path.
   get "*page", to: "home#index", constraints: ->(req) do
-    !req.xhr? && req.format.html?
-  end
-
+                 !req.xhr? && req.format.html?
+               end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

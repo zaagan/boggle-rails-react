@@ -1,5 +1,9 @@
 require_relative 'boot'
 require_relative '../lib/dictionary.rb'
+require_relative '../lib/messages.rb'
+require_relative '../lib/statusCodes.rb'
+require_relative '../lib/gameData.rb'
+
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
