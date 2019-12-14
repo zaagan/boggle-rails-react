@@ -1,33 +1,47 @@
-import {
-  NEW_GAME_INIT,
-  NEW_GAME_SUCCESS,
-  NEW_GAME_FAILURE,
-  BACK_TO_HOME
-} from "../types";
+import { NEW_GAME_INIT, NEW_GAME_SUCCESS, NEW_GAME_FAILURE, BACK_TO_HOME } from "../types";
 
 import { gameService } from "../../services/game.service";
 
 import { ROUTE_STAGE1 } from "../../constants/routeNames";
+import { toast } from 'react-toastify';
 
 export const gameAction = {
   initNewGame,
   backToHome
 };
 
-function initNewGame(userName, stageID,boardSize, history) {
+function initNewGame(initGameObj, history) {
   return dispatch => {
-    dispatch(request({ userName, stageID })); // <-- REQUEST ACTION
 
-    // MAKE A REQUEST TO THE API
-    gameService.initGame(userName, stageID).then(
-      gameInfo => {
-        dispatch(success(gameInfo)); // <-- SUCCESS ACTION
-        history.push(ROUTE_STAGE1);
-      },
-      error => {
+
+    // REQUEST ACTION -- >
+    dispatch(request({
+      userName: initGameObj.userName,
+      stageID: initGameObj.stageID
+    }));
+
+    // MAKE A REQUEST TO THE API -->
+    gameService
+      .initGame(initGameObj)
+      .then(gameInfo => {
+        
+        if (gameInfo) {
+
+          if (gameInfo.success) {
+            dispatch(success(gameInfo)); // <-- SUCCESS ACTION
+            history.push(ROUTE_STAGE1);
+          } else {
+            dispatch(failure(gameInfo.message)); // <-- FAILURE ACTION
+          }
+        } else {
+       
+          dispatch(failure('Something went wrong.')); // <-- FAILURE ACTION
+        }
+
+      }, error => {
+      
         dispatch(failure(error)); // <-- FAILURE ACTION
-      }
-    );
+      });
   };
 
   function request(user) {

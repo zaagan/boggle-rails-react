@@ -9,8 +9,12 @@ import {
   controlledRoutes as ControlledRoutes
 } from "../routes";
 import Aux from "../hoc/_Aux";
+import { ToastContainer } from 'react-toastify';
+
 
 import "./App.css";
+import 'react-toastify/dist/ReactToastify.css';
+
 import logo from "../assets/images/logo.png";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -62,6 +66,7 @@ class App extends React.Component {
 
                 {primaryRoutes}
                 {privateRoutes}
+                <ToastContainer />
               </div>
             </React.Fragment>
           </Switch>

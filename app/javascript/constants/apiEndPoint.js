@@ -1,7 +1,13 @@
-
-
 export default {
-    GAME_INIT: '/api/game/init',
-    SUBMIT_ANSWER: '/api/game/answers',
-    GAME_RESULTS: '/api/results'
+
+    GAMES : {
+        INIT: GenerateApiUrl('games'),
+        NEW_GAME: GenerateApiUrl('games/new'),
+        CROSS_CHECK: GenerateApiUrl('games/crosscheck'),
+        SCORES: GenerateApiUrl('games/evaluate')
+    },
+}
+
+function GenerateApiUrl(postUrl) {
+    return '/v1/' + postUrl;
 }

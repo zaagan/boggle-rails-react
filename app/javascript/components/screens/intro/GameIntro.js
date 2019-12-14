@@ -16,7 +16,7 @@ class GameIntro extends React.Component {
     super(props);
 
     this.state = {
-      UserName: "",
+      userName: "",
       stageID: 1,
       boardSize: 4
     };
@@ -35,12 +35,17 @@ class GameIntro extends React.Component {
 
     this.setState({ submitted: true });
 
-    const { UserName, stageID, boardSize} = this.state;
+    const { userName, stageID, boardSize } = this.state;
     const { dispatch } = this.props;
     const history = this.props.history;
 
-    if (UserName && stageID) {
-      dispatch(gameAction.initNewGame(UserName, stageID,boardSize, history));
+    if (userName && stageID) {
+      var newGameObj = {
+        userName,
+        stageID,
+        boardSize
+      };
+      dispatch(gameAction.initNewGame(newGameObj, history));
     }
   }
 
@@ -74,19 +79,19 @@ class GameIntro extends React.Component {
 
             <input
               type="text"
-              name="UserName"
+              name="userName"
               className="form-control input-element"
               placeholder="Enter a User name > eg: John Doe"
-              aria-label="UserName"
+              aria-label="userName"
               aria-describedby="basic-addon1"
               onChange={this.handleChange}
             />
 
             <div className="input-selector">
               <label className="input-label">Choose a board size :</label>
-              
-              <select  name="boardSize"
-               className="input-element" value={this.state.boardSize} onChange={this.handleChange}>
+
+              <select name="boardSize"
+                className="input-element" value={this.state.boardSize} onChange={this.handleChange}>
                 <option value="4"> 4 x 4</option>
                 <option value="5"> 5 x 5 </option>
                 <option value="6"> 6 x 6</option>

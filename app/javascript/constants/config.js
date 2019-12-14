@@ -1,7 +1,7 @@
 export default {
   defaultPath: "/",
   baseName: "/",
-  timeLimit: "00:00:05", // The time interval of the game
+  timeLimit: "00:03:00", // The time interval of the game
   minLetters: 3, // Mininum number of letters required to submit
   gamePlay: {
     // You can toggle the game play settings here,

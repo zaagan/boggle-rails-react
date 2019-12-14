@@ -7,5 +7,11 @@ export const NEW_GAME_FAILURE = "NEW_GAME_FAILURE";
 
 export const BACK_TO_HOME = "BACK_TO_HOME";
 
-
-
+export const ALERT_ACTION = {
+    SUCCESS: 'ALERT_SUCCESS',
+    ERROR: 'ALERT_ERROR',
+    CLEAR: 'ALERT_CLEAR',
+    INFO: 'ALERT_INFO',
+    WARNING: 'ALERT_WARNING',
+    DEFAULT: 'ALERT_DEFAULT'
+};

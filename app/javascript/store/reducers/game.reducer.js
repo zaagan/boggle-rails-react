@@ -5,8 +5,10 @@ import {
   BACK_TO_HOME
 } from "../types";
 import config from "../../constants/config";
+import { MessageType, InGameMessageType } from "../../constants/messageType.js";
 
-import { getCurrentUser } from "../../helpers";
+import { getCurrentUser, showMessage, GenerateMessage } from "../../helpers";
+
 
 const initialState = {
   ...config,
@@ -20,22 +22,25 @@ const initialState = {
   ],
   inGame: false,
   currentUser: getCurrentUser(),
-  stages: []
+  stages: [],
 };
 
 const game = (state = initialState, action) => {
+
   switch (action.type) {
     case NEW_GAME_INIT:
-      return {...state, inGame: true, currentUser: action.user };
+      return { ...state, inGame: true, currentUser: action.user, errMsg: [] };
 
     case NEW_GAME_SUCCESS:
-      return {...state, inGame: true, currentUser: action.user };
+      showMessage(MessageType.SUCCESS, GenerateMessage(InGameMessageType.GREETING, action.user.userName));
+      return { ...state, inGame: true, currentUser: action.user };
 
     case NEW_GAME_FAILURE:
-      return {...state, inGame: false, currentUser: null };
+      showMessage(MessageType.ERROR, action.error);
+      return { ...state, inGame: false, currentUser: null };
 
     case BACK_TO_HOME:
-      return {...state, inGame: false, currentUser: null };
+      return { ...state, inGame: false, currentUser: null };
 
     default:
       return state;
