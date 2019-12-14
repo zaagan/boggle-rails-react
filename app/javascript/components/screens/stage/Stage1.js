@@ -29,7 +29,10 @@ class Stage1 extends Component {
   constructor(props) {
     super(props);
 
-    this.initBoard = shuffleBoard();
+    let { data, boardSize } = props.currentUser;
+    let board_data = data.board_data;
+
+    this.initBoard = shuffleBoard(board_data, boardSize);
 
     this.state = {
       board: this.initBoard,

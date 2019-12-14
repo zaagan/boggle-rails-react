@@ -1,17 +1,19 @@
 .row button {
   /* width: 52px;
   height: 52px; */
-  width: 42px;
-  height: 42px;
+  /* width: 42px;
+  height: 42px; */
   border-radius: 5px;
   float: left;
   margin-right: 10px;
   margin-bottom: 10px;
-  -webkit-transition: background 0.5s; /* Safari */
+  -webkit-transition: background 0.5s;
+  /* Safari */
   transition: background 0.5s;
   outline: none;
   text-transform: uppercase;
 }
+
 
 .tile {
   background: #fff;
@@ -44,4 +46,21 @@
 .tile-selected:hover {
   background: #ef6c00;
   cursor: pointer;
+}
+
+
+
+.tile-4 {
+  width: 55px;
+  height: 55px;
+}
+
+.tile-5 {
+  width: 42px;
+  height: 42px;
+}
+
+.tile-6 {
+  width: 35px;
+  height: 35px;
 }

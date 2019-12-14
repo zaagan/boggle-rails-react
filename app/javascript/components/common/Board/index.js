@@ -4,6 +4,7 @@ import "./Board.css";
 
 const Board = props => {
   const { board, handleClick } = props;
+  
   return (
     <div className="orange-area">
       {board.map((row, index) => {
@@ -12,6 +13,7 @@ const Board = props => {
             {row.map(tile => {
               return (
                 <Tile
+                  extraClass={"tile-" + board.length}
                   selected={tile.selected}
                   letter={tile.letter}
                   key={tile.columnId}

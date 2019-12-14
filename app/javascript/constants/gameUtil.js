@@ -18,7 +18,8 @@ const shuffleDice = dice => {
   return dice;
 };
 
-export const shuffleBoard = () => {
+
+export const shuffleBoardOld = () => {
   //  Create 1D array with dice
   //  Shuffle the dice
   //  Create 2D array with an empty board
@@ -65,6 +66,7 @@ export const shuffleBoard = () => {
 
   for (let row = 0; row < boardLength; row++) {
     for (let col = 0; col < boardLength; col++) {
+      debugger;
       let dice = shuffledDice.shift();
 
       let face = randomlySelectedFace(dice);
@@ -72,6 +74,37 @@ export const shuffleBoard = () => {
       board[row][col] = tileData;
     }
   }
+  return board;
+};
+String.prototype.chunk = function (size) {
+  return [].concat.apply([],
+    this.split('').map(function (x, i) { return i % size ? [] : this.slice(i, i + size) }, this)
+  )
+}
+
+
+export const shuffleBoard = (boardData, boardSize) => {
+  //  Create 1D array with dice
+  //  Shuffle the dice
+  //  Create 2D array with an empty board
+  //  Randomly select from the 1D array
+  //  Insert in the board and randomly pick a face
+
+  const dice = boardData.chunk(boardSize);
+
+  const board = [];
+  for (var row = 0; row < boardSize; row++) {
+    var cols = [];
+    var diceRow = dice[row];
+
+    for (var col = 0; col < boardSize; col++) {
+      let face = diceRow[col];
+      const tileData = new TileData(face, row, col);
+      cols.push(tileData);
+    }
+    board.push(cols);
+  }
+
   return board;
 };
 
