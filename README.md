@@ -4,7 +4,7 @@ This is a [Ruby on Rails](https://rubyonrails.org/) and [React.js](https://react
 
 
 
-Demo Link
+[Demo Link on Heroku](https://ruby-react-boggle.herokuapp.com/)
 
 
 
