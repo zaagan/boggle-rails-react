@@ -15,3 +15,26 @@
 .clear {
   clear: both;
 }
+
+.btn-primary {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+.btn-end-game {
+  width: 209px;
+  font-size: 14px;
+  height: 34px;
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+  margin-left: 45px;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;
+  text-decoration: none;
+}

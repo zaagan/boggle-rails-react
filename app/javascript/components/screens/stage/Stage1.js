@@ -18,15 +18,14 @@ import NavBar from "../../common/NavBar";
 
 import { NB_HOME, NB_RESET } from "../../../constants/navBarAction";
 import TimeSand from "../../common/TimeSand";
-import {
-  ROUTE_SCORES,
-  ROUTE_INTRO,
-  ROUTE_STAGE1
-} from "../../../constants/routeNames";
+import { ROUTE_SCORES, ROUTE_STAGE1 } from "../../../constants/routeNames";
 import { gameAction } from "../../../store/actions";
 import { MessageType, InGameMessageType } from "../../../constants/messageType";
 
 import { showMessage, GenerateMessage } from "../../../helpers";
+
+import { confirmAlert } from "react-confirm-alert"; // Import
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 
 class Stage1 extends Component {
   constructor(props) {
@@ -40,18 +39,17 @@ class Stage1 extends Component {
     this.state = {
       board: this.initBoard,
       currentWord: "",
-      currentWordPosition: [],
+      currentWordPosition: []
     };
 
     this.onUserAction = this.onUserAction.bind(this);
+    this.onEndGameClick = this.onEndGameClick.bind(this);
   }
-
-
 
   backtoHome = () => {
     const { dispatch } = this.props;
     dispatch(gameAction.clearGame());
-  }
+  };
 
   onUserAction(item) {
     switch (item) {
@@ -61,7 +59,8 @@ class Stage1 extends Component {
         break;
 
       case NB_RESET:
-        this.props.history.push(ROUTE_STAGE1);
+        window.location.reload();
+        // this.props.history.push(ROUTE_STAGE1);
         break;
 
       default:
@@ -121,7 +120,6 @@ class Stage1 extends Component {
     }
   }
 
-
   clearStage = () => {
     const clearedBoard = this.initBoard;
     this.setState({
@@ -129,12 +127,30 @@ class Stage1 extends Component {
       currentWordPosition: [],
       board: clearedBoard
     });
-  }
+  };
 
+  onEndGameClick() {
+    let props = this.props;
+    confirmAlert({
+      title: "Quit Game",
+      message: "Are you sure you want to end this game ?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            props.history.push(ROUTE_SCORES);
+          }
+        },
+        {
+          label: "Not Yet ",
+          onClick: () => console.log("submission canceled")
+        }
+      ]
+    });
+  }
 
   // Adds Current Word to the Word List
   handleSubmit(word) {
-
     let currentList = this.props.wordScoreList;
 
     // Check if word is valid
@@ -143,19 +159,26 @@ class Stage1 extends Component {
     }
 
     if (currentList && currentList[word]) {
-      showMessage(MessageType.ERROR, GenerateMessage(InGameMessageType.EXISTS, ''));
+      showMessage(
+        MessageType.ERROR,
+        GenerateMessage(InGameMessageType.EXISTS, "")
+      );
       this.clearStage();
       return;
     }
 
     const { dispatch } = this.props;
 
-    dispatch(gameAction.evaluateWord({
-      word: word
-    }, () => {
-      this.clearStage();
-
-    }));
+    dispatch(
+      gameAction.evaluateWord(
+        {
+          word: word
+        },
+        () => {
+          this.clearStage();
+        }
+      )
+    );
   }
 
   render() {
@@ -163,22 +186,35 @@ class Stage1 extends Component {
       <Aux>
         <NavBar onClick={this.onUserAction} />
 
-        <div className="game-area">
-          <Board
-            board={this.state.board}
-            handleClick={this.handleClick.bind(this)}
-          />
-          <CurrentWord
-            currentWord={this.state.currentWord}
-            label="Current Word"
-          />
-          <Button
-            handleSubmit={this.handleSubmit.bind(this, this.state.currentWord)}
-            label="SUBMIT WORD"
-          />
+        <div className="game-container">
+          <div className="game-area left-container">
+            <Board
+              board={this.state.board}
+              handleClick={this.handleClick.bind(this)}
+            />
+            <CurrentWord
+              currentWord={this.state.currentWord}
+              label="Current Word"
+            />
+            <Button
+              handleSubmit={this.handleSubmit.bind(
+                this,
+                this.state.currentWord
+              )}
+              label="SUBMIT WORD"
+            />
+          </div>
+
+          <div className="right-container">
+            <ScoreBox />
+            <Button
+              extraClass="btn-primary btn-end-game"
+              handleSubmit={this.onEndGameClick}
+              label="QUIT GAME"
+            />
+          </div>
         </div>
 
-        <ScoreBox />
         <div className="timesand-container">
           <TimeSand />
         </div>

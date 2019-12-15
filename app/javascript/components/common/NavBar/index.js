@@ -8,11 +8,9 @@ import { withRouter } from "react-router-dom";
 import IconButton from "../IconButton";
 import { NB_HOME, NB_RESET } from "../../../constants/navBarAction";
 import ReactStopwatch from "react-stopwatch";
-import TimeSand from "../../common/TimeSand";
+
 import {
-  ROUTE_SCORES,
-  ROUTE_INTRO,
-  ROUTE_STAGE1
+  ROUTE_SCORES
 } from "../../../constants/routeNames";
 
 class NavBar extends React.Component {
@@ -54,7 +52,6 @@ class NavBar extends React.Component {
                 seconds={0}
                 minutes={0}
                 hours={0}
-                // limit={"00:00:10"}
                 limit={timeLimit}
                 onChange={({ hours, minutes, seconds }) => {
 

@@ -8,9 +8,68 @@ Demo Link
 
 
 
+## Built with
+
+- Ruby 2.6.5p114
+
+- Rails 6.0.1
+
+- Node : v12.13.1 
+
+- npm : 6.6.0 or Yarn
+
+- React JS 16.12.0
+
+  
+
 ## Quick Start
 
-Getting the monster running [TO DO] ...
+You need to have bundler installed in your system.
+
+**Step 1:** You can install it by typing :
+
+```bash
+$ gem install bundler
+```
+
+
+
+**Note:**  Due to some reason, in my **windows machine**, I had to install the **sqlite3** gem separately.
+
+*sqlite3 is currently not in use in this project, But I didn't exclude it because I will be using it in the future.*
+
+**Step 2:** Installing sqlite3
+
+```bash
+$ gem install sqlite3
+```
+
+
+
+**Step 3:** Finally, Install all the related package.
+
+Open of a terminal window in the root of the project **/boggle-rails-react** and type :
+
+```bash
+$ bundle install
+```
+
+
+
+**Step 4:** Install the necessary node packages
+
+```bash
+$ yarn install or 
+$ npm install
+```
+
+
+
+**Step 5:** Run the server
+
+```bash
+$ rails server
+```
 
 
 
@@ -24,19 +83,7 @@ Basically, The player searches for words that can be constructed from the letter
 
 
 
-## Built With
 
-- Ruby 2.6.5p114
-
-- Rails 6.0.1
-
-- Node : v12.13.1 
-
-- npm : 6.6.0
-
-- React JS 16.12.0
-
-  
 
 
 
@@ -54,7 +101,9 @@ Basically, The player searches for words that can be constructed from the letter
 
 ## Screenshots
 
-[TO DO]
+![Home Page](resources\home.png)
+
+
 
 
 
