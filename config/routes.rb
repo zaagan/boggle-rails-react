@@ -4,8 +4,6 @@ Rails.application.routes.draw do
     get "games/new", to: "games#new"
     get "games/evaluate", to: "games#evaluate"
     
-    # get "games/crosscheck", to: "games#crosscheck"
-    # get "games/scores", to: "games#scores"
   end
 
   # Formward root to HomeController#index

@@ -1,10 +1,29 @@
+# [RDB][added] to avoid database altogether
+# require File.expand_path('../boot', __FILE__)
+
 require_relative 'boot'
+
+require "rails"
+
 require_relative '../lib/dictionary.rb'
 require_relative '../lib/messages.rb'
 require_relative '../lib/statusCodes.rb'
 require_relative '../lib/gameData.rb'
 
-require 'rails/all'
+# [RDB][removed] to avoid database altogether
+# require 'rails/all'
+
+# [RDB][added] to avoid database altogether
+require "active_model/railtie"
+require "active_job/railtie"
+require "action_view/railtie"
+# require "active_storage/engine"
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "rails/test_unit/railtie"
+require "action_cable/engine"
+require "sprockets/railtie"
+
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

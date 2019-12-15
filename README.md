@@ -34,19 +34,7 @@ $ gem install bundler
 
 
 
-**Note:**  Due to some reason, in my **windows machine**, I had to install the **sqlite3** gem separately.
-
-*sqlite3 is currently not in use in this project, But I didn't exclude it because I will be using it in the future.*
-
-**Step 2:** Installing sqlite3:
-
-```bash
-$ gem install sqlite3
-```
-
-
-
-**Step 3:** Finally, Install all the related package.
+**Step 2:** Install all the related package.
 
 Open of a terminal window in the root of the project **/boggle-rails-react** and type :
 
@@ -73,6 +61,10 @@ $ rails server
 
 
 
+**Note:**  *All database dependencies, Active records dependencies have been intentionally removed as we wont be needing them for this demo project.*
+
+
+
 ## How it works ?
 
 [**Boggle**](https://en.wikipedia.org/wiki/Boggle) is a [word game](https://en.wikipedia.org/wiki/Word_game) invented by Allan Turoff and originally distributed by [Parker Brothers](https://en.wikipedia.org/wiki/Parker_Brothers). The game is played using a grid of letters, in which the players attempt to find words in sequences of adjacent letters. 
@@ -93,7 +85,6 @@ You can test the Rails API by executing the following code, in a terminal window
 
 ```bash
 $ bundle exec rspec
-$ bundle exec rspec –tag focus
 ```
 
 
