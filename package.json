@@ -35,7 +35,7 @@
   "engines": {
     "npm": "6.x",
 	"yarn": "1.x"
-  }
+  },
   "devDependencies": {
     "babel-jest": "^24.9.0",
     "regenerator-runtime": "^0.13.3",
