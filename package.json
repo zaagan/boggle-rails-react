@@ -41,7 +41,9 @@
     "regenerator-runtime": "^0.13.3",
     "webpack-dev-server": "^3.9.0"
   },
+  "proxy": "http://localhost:3001",
   "scripts": {
+    "build": "yarn install",
     "test": "jest",
     "test-watch": "jest --watch"
   },
