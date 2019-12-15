@@ -108,7 +108,7 @@ $ bundle exec rspec –tag focus
 
 ##### Stage 1 Preview
 
-![Stage 1](\resources\stage1.png)
+![Stage 1](resources\stage1.png)
 
 ## License
 
