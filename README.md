@@ -100,11 +100,15 @@ $ bundle exec rspec –tag focus
 
 ## Screenshots
 
-![Home Page](resources\home.png)
+##### Home Page  Preview
+
+<img src="resources\home.png" alt="Home Page" style="zoom: 80%;" />
 
 
 
+##### Stage 1 Preview
 
+![Stage 1](\resources\stage1.png)
 
 ## License
 
