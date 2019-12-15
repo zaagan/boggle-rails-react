@@ -26,7 +26,7 @@ Demo Link
 
 You need to have bundler installed in your system.
 
-**Step 1:** You can install it by typing :
+**Step 1:** You can install it by typing:
 
 ```bash
 $ gem install bundler
@@ -38,7 +38,7 @@ $ gem install bundler
 
 *sqlite3 is currently not in use in this project, But I didn't exclude it because I will be using it in the future.*
 
-**Step 2:** Installing sqlite3
+**Step 2:** Installing sqlite3:
 
 ```bash
 $ gem install sqlite3
@@ -56,7 +56,7 @@ $ bundle install
 
 
 
-**Step 4:** Install the necessary node packages
+**Step 4:** Install the necessary node packages:
 
 ```bash
 $ yarn install or 
@@ -65,7 +65,7 @@ $ npm install
 
 
 
-**Step 5:** Run the server
+**Step 5:** Run the server:
 
 ```bash
 $ rails server
@@ -83,19 +83,18 @@ Basically, The player searches for words that can be constructed from the letter
 
 
 
-
-
-
-
-## Build Status
-
-[TO DO]
-
-
-
 ## Running the tests
 
-[TO DO]
+
+
+#### Testing the Rails APIs
+
+You can test the Rails API by executing the following code, in a terminal window, at the root of the (**/boggle-rails-react**) project:
+
+```bash
+$ bundle exec rspec
+$ bundle exec rspec –tag focus
+```
 
 
 
