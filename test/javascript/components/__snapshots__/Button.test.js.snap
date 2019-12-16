@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Snapshot tests] Button activities should render a button 1`] = `
+<button
+  className=" button test"
+>
+  Hello world
+</button>
+`;

@@ -10,10 +10,13 @@ import {
   BACK_TO_HOME
 } from "../types";
 
+import { MessageType, InGameMessageType } from "../../constants/messageType.js";
+
+import { showMessage, GenerateMessage } from "../../helpers";
+
 import { gameService } from "../../services/game.service";
 
 import { ROUTE_STAGE1 } from "../../constants/routeNames";
-import { toast } from 'react-toastify';
 
 export const gameAction = {
   initNewGame,
@@ -53,25 +56,30 @@ function evaluateWord(gameObj = {
             if (response.data && response.data.is_correct) {
 
               dispatch(success(response)); // <-- SUCCESS ACTION
+              showMessage(MessageType.SUCCESS, GenerateMessage(InGameMessageType.SUCCESS, ''));
+
             } else {
               dispatch(incorrect(response)); // <-- SUCCESS ACTION
+              showMessage(MessageType.ERROR, GenerateMessage(InGameMessageType.ERROR, ''));
             }
 
             if (onSuccess) onSuccess();
 
 
-
           } else {
             dispatch(failure(response.message)); // <-- FAILURE ACTION
+            showMessage(MessageType.ERROR, response.message);
           }
         } else {
-
-          dispatch(failure('Something went wrong.')); // <-- FAILURE ACTION
+          let msg = 'Something went wrong.'
+          dispatch(failure(msg)); // <-- FAILURE ACTION
+          showMessage(MessageType.ERROR, msg);
         }
 
       }, error => {
-
         dispatch(failure(error)); // <-- FAILURE ACTION
+        showMessage(MessageType.ERROR, error);
+
       });
 
   };
@@ -112,19 +120,29 @@ function initNewGame(initGameObj = {
         if (response) {
 
           if (response.success) {
+
             dispatch(success(response)); // <-- SUCCESS ACTION
             history.push(ROUTE_STAGE1);
+
+            showMessage(MessageType.SUCCESS, GenerateMessage(InGameMessageType.GREETING, response.userName));
+
           } else {
+
             dispatch(failure(response.message)); // <-- FAILURE ACTION
+
+            showMessage(MessageType.ERROR, response.message);
           }
         } else {
 
-          dispatch(failure('Something went wrong.')); // <-- FAILURE ACTION
+          let msg = 'Something went wrong.';
+          dispatch(failure(msg)); // <-- FAILURE ACTION
+          showMessage(MessageType.ERROR, msg);
+
         }
 
       }, error => {
-
         dispatch(failure(error)); // <-- FAILURE ACTION
+        showMessage(MessageType.ERROR, error);
       });
   };
 

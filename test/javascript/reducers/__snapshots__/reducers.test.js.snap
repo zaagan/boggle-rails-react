@@ -1,0 +1,331 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`game reducer should handle a new Game init request 1`] = `
+Object {
+  "baseName": "/",
+  "currentUser": Object {
+    "stageID": 1,
+    "userName": "Ozesh",
+  },
+  "defaultPath": "/",
+  "errMsg": Array [],
+  "gamePlay": Object {
+    "diagonal": true,
+    "horizontal": true,
+    "vertical": true,
+  },
+  "inGame": true,
+  "minLetters": 3,
+  "stages": Array [],
+  "timeLimit": "00:03:00",
+  "trials": 0,
+  "users": Array [
+    Object {
+      "level": 3,
+      "score": 34,
+      "trials": 2,
+      "user": "andrew",
+    },
+  ],
+  "wordScoreList": Object {},
+  "wordTypes": Object {
+    "adjectives": true,
+    "adverbs": true,
+    "nouns": true,
+    "properNouns": false,
+    "verbs": true,
+  },
+  "wrongCount": 0,
+}
+`;
+
+exports[`game reducer should handle clearing the game. 1`] = `
+Object {
+  "baseName": "/",
+  "currentUser": null,
+  "defaultPath": "/",
+  "gamePlay": Object {
+    "diagonal": true,
+    "horizontal": true,
+    "vertical": true,
+  },
+  "inGame": false,
+  "minLetters": 3,
+  "stages": Array [],
+  "timeLimit": "00:03:00",
+  "trials": 0,
+  "users": Array [
+    Object {
+      "level": 3,
+      "score": 34,
+      "trials": 2,
+      "user": "andrew",
+    },
+  ],
+  "wordScoreList": Object {},
+  "wordTypes": Object {
+    "adjectives": true,
+    "adverbs": true,
+    "nouns": true,
+    "properNouns": false,
+    "verbs": true,
+  },
+  "wrongCount": 0,
+}
+`;
+
+exports[`game reducer should handle evaluation failures. 1`] = `
+Object {
+  "baseName": "/",
+  "currentUser": null,
+  "defaultPath": "/",
+  "gamePlay": Object {
+    "diagonal": true,
+    "horizontal": true,
+    "vertical": true,
+  },
+  "inGame": false,
+  "minLetters": 3,
+  "stages": Array [],
+  "timeLimit": "00:03:00",
+  "trials": 0,
+  "users": Array [
+    Object {
+      "level": 3,
+      "score": 34,
+      "trials": 2,
+      "user": "andrew",
+    },
+  ],
+  "wordScoreList": Object {},
+  "wordTypes": Object {
+    "adjectives": true,
+    "adverbs": true,
+    "nouns": true,
+    "properNouns": false,
+    "verbs": true,
+  },
+  "wrongCount": 0,
+}
+`;
+
+exports[`game reducer should handle evaluation init 1`] = `
+Object {
+  "baseName": "/",
+  "currentUser": null,
+  "defaultPath": "/",
+  "gamePlay": Object {
+    "diagonal": true,
+    "horizontal": true,
+    "vertical": true,
+  },
+  "inGame": false,
+  "minLetters": 3,
+  "stages": Array [],
+  "timeLimit": "00:03:00",
+  "trials": 1,
+  "users": Array [
+    Object {
+      "level": 3,
+      "score": 34,
+      "trials": 2,
+      "user": "andrew",
+    },
+  ],
+  "wordScoreList": Object {},
+  "wordTypes": Object {
+    "adjectives": true,
+    "adverbs": true,
+    "nouns": true,
+    "properNouns": false,
+    "verbs": true,
+  },
+  "wrongCount": 0,
+}
+`;
+
+exports[`game reducer should handle evaluation sucess 1`] = `
+Object {
+  "baseName": "/",
+  "currentUser": null,
+  "defaultPath": "/",
+  "gamePlay": Object {
+    "diagonal": true,
+    "horizontal": true,
+    "vertical": true,
+  },
+  "inGame": false,
+  "minLetters": 3,
+  "stages": Array [],
+  "timeLimit": "00:03:00",
+  "trials": 0,
+  "users": Array [
+    Object {
+      "level": 3,
+      "score": 34,
+      "trials": 2,
+      "user": "andrew",
+    },
+  ],
+  "wordScoreList": Object {
+    "toad": 1,
+  },
+  "wordTypes": Object {
+    "adjectives": true,
+    "adverbs": true,
+    "nouns": true,
+    "properNouns": false,
+    "verbs": true,
+  },
+  "wrongCount": 0,
+}
+`;
+
+exports[`game reducer should handle game failures 1`] = `
+Object {
+  "baseName": "/",
+  "currentUser": null,
+  "defaultPath": "/",
+  "gamePlay": Object {
+    "diagonal": true,
+    "horizontal": true,
+    "vertical": true,
+  },
+  "inGame": false,
+  "minLetters": 3,
+  "stages": Array [],
+  "timeLimit": "00:03:00",
+  "trials": 0,
+  "users": Array [
+    Object {
+      "level": 3,
+      "score": 34,
+      "trials": 2,
+      "user": "andrew",
+    },
+  ],
+  "wordScoreList": Object {},
+  "wordTypes": Object {
+    "adjectives": true,
+    "adverbs": true,
+    "nouns": true,
+    "properNouns": false,
+    "verbs": true,
+  },
+  "wrongCount": 0,
+}
+`;
+
+exports[`game reducer should handle incorrect evaluations. 1`] = `
+Object {
+  "baseName": "/",
+  "currentUser": null,
+  "defaultPath": "/",
+  "gamePlay": Object {
+    "diagonal": true,
+    "horizontal": true,
+    "vertical": true,
+  },
+  "inGame": false,
+  "minLetters": 3,
+  "stages": Array [],
+  "timeLimit": "00:03:00",
+  "trials": 0,
+  "users": Array [
+    Object {
+      "level": 3,
+      "score": 34,
+      "trials": 2,
+      "user": "andrew",
+    },
+  ],
+  "wordScoreList": Object {},
+  "wordTypes": Object {
+    "adjectives": true,
+    "adverbs": true,
+    "nouns": true,
+    "properNouns": false,
+    "verbs": true,
+  },
+  "wrongCount": 1,
+}
+`;
+
+exports[`game reducer should init a new game 1`] = `
+Object {
+  "baseName": "/",
+  "currentUser": Object {
+    "boardSize": 4,
+    "data": Object {
+      "board_data": "dtyraqtaoarexepm",
+    },
+    "message": "New game initiated.",
+    "stageID": 1,
+    "success": true,
+    "userName": "Ozesh",
+  },
+  "defaultPath": "/",
+  "gamePlay": Object {
+    "diagonal": true,
+    "horizontal": true,
+    "vertical": true,
+  },
+  "inGame": true,
+  "minLetters": 3,
+  "stages": Array [],
+  "timeLimit": "00:03:00",
+  "trials": 0,
+  "users": Array [
+    Object {
+      "level": 3,
+      "score": 34,
+      "trials": 2,
+      "user": "andrew",
+    },
+  ],
+  "wordScoreList": Object {},
+  "wordTypes": Object {
+    "adjectives": true,
+    "adverbs": true,
+    "nouns": true,
+    "properNouns": false,
+    "verbs": true,
+  },
+  "wrongCount": 0,
+}
+`;
+
+exports[`game reducer should return the initial state 1`] = `
+Object {
+  "baseName": "/",
+  "currentUser": null,
+  "defaultPath": "/",
+  "gamePlay": Object {
+    "diagonal": true,
+    "horizontal": true,
+    "vertical": true,
+  },
+  "inGame": false,
+  "minLetters": 3,
+  "stages": Array [],
+  "timeLimit": "00:03:00",
+  "trials": 0,
+  "users": Array [
+    Object {
+      "level": 3,
+      "score": 34,
+      "trials": 2,
+      "user": "andrew",
+    },
+  ],
+  "wordScoreList": Object {},
+  "wordTypes": Object {
+    "adjectives": true,
+    "adverbs": true,
+    "nouns": true,
+    "properNouns": false,
+    "verbs": true,
+  },
+  "wrongCount": 0,
+}
+`;

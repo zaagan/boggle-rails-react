@@ -11,7 +11,6 @@ export function showMessage(messageType, msg, location = toast.POSITION.TOP_RIGH
     };
     switch (messageType) {
 
-
         case MessageType.SUCCESS:
             toast.success(msg, options);
             break;

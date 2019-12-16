@@ -10,12 +10,11 @@ import {
   BACK_TO_HOME
 } from "../types";
 import config from "../../constants/config";
-import { MessageType, InGameMessageType } from "../../constants/messageType.js";
 
-import { getCurrentUser, showMessage, GenerateMessage } from "../../helpers";
+import { getCurrentUser } from "../../helpers";
 
 
-const initialState = {
+export const initialState = {
   ...config,
   users: [
     {
@@ -35,16 +34,16 @@ const initialState = {
 
 const game = (state = initialState, action) => {
 
+  debugger;
   switch (action.type) {
     case NEW_GAME_INIT:
+      
       return { ...state, inGame: true, currentUser: action.user, errMsg: [] };
 
     case NEW_GAME_SUCCESS:
-      showMessage(MessageType.SUCCESS, GenerateMessage(InGameMessageType.GREETING, action.user.userName));
       return { ...state, inGame: true, currentUser: action.user };
 
     case NEW_GAME_FAILURE:
-      showMessage(MessageType.ERROR, action.error);
       return { ...state, inGame: false, currentUser: null };
 
 
@@ -54,14 +53,13 @@ const game = (state = initialState, action) => {
 
     case EVALUATION_INCORRECT:
       let wrongCount = state.wrongCount + 1;
-      showMessage(MessageType.ERROR, GenerateMessage(InGameMessageType.ERROR, ''));
       return { ...state, wrongCount: wrongCount };
 
 
     case EVALUATION_SUCCESS:
 
       let { word, data } = action.response;
-      showMessage(MessageType.SUCCESS, GenerateMessage(InGameMessageType.SUCCESS, ''));
+      
       return {
         ...state,
         wordScoreList: {
@@ -72,7 +70,6 @@ const game = (state = initialState, action) => {
 
 
     case EVALUATION_FAILURE:
-      showMessage(MessageType.ERROR, action.error);
       return state;
 
     case CLEAR_GAME:

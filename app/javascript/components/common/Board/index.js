@@ -4,7 +4,7 @@ import "./Board.css";
 
 const Board = props => {
   const { board, handleClick } = props;
-  
+
   return (
     <div className="orange-area">
       {board.map((row, index) => {

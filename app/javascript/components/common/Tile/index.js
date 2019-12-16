@@ -6,7 +6,7 @@ const Tile = props => {
 
   return (
     <button
-      className={selected ? ` tile-selected ${extraClass}` : `tile ${extraClass} `}
+      className={selected ? ` tile-item tile-selected ${extraClass}` : `tile-item tile ${extraClass} `}
       onClick={handleClick}
     >
       {letter}

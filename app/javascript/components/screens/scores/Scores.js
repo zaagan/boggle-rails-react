@@ -37,7 +37,7 @@ class Scores extends React.Component {
 
     let userName = currentUser.userName ? currentUser.userName : "";
 
-    let resultMsg = GenerateMessageByTrials(trials);
+    let resultMsg = GenerateMessageByTrials(trials,userName);
 
     let totalScore = 0;
     let totalCorrect = 0;

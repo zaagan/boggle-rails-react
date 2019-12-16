@@ -6,8 +6,7 @@ import {
   shuffleBoard,
   copyBoard,
   isTileEqual,
-  isAdjacent,
-  calculateScore
+  isAdjacent
 } from "../../../constants/gameUtil";
 import Board from "../../common/Board";
 import ScoreBox from "../../common/ScoreBox";
@@ -80,7 +79,6 @@ class Stage1 extends Component {
   // 3. render the board with updated tile so it renders as active
 
   handleClick(rowId, columnId) {
-    // TODO: Handle tile click to select / unselect tile.
     const selectedTile = this.state.board[rowId][columnId];
     const lastSelectedTile = this.state.currentWordPosition[
       this.state.currentWordPosition.length - 1

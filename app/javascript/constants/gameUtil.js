@@ -1,113 +1,71 @@
 import { TileData } from "../data";
 
-const facesNum = 6;
-const boardLength = 5;
-
-const randomlySelectedFace = faces => {
-  let randomIndex = Math.floor(Math.random() * facesNum);
-  return faces.charAt(randomIndex);
-};
-
-const shuffleDice = dice => {
-  for (let i = 0; i < dice.length; i++) {
-    let randomIndex = Math.floor(Math.random() * dice.length); // random from 0 -> 25
-    let temp = dice[i];
-    dice[i] = dice[randomIndex];
-    dice[randomIndex] = temp;
-  }
-  return dice;
-};
-
-
-export const shuffleBoardOld = () => {
-  //  Create 1D array with dice
-  //  Shuffle the dice
-  //  Create 2D array with an empty board
-  //  Randomly select from the 1D array
-  //  Insert in the board and randomly pick a face
-
-  const dice = [
-    "aaafrs",
-    "aaeeee",
-    "aafirs",
-    "aeeeem",
-    "aeegmu",
-    "aegmnn",
-    "afirsy",
-    "bjkqxz",
-    "ccenst",
-    "ceiilt",
-    "ceilpt",
-    "ceipst",
-    "ddhnot",
-    "dhhlor",
-    "dhhlor",
-    "dhlnor",
-    "dhlnor",
-    "eiiitt",
-    "emottt",
-    "ensssu",
-    "fiprsy",
-    "gorrvw",
-    "iprrry",
-    "nootuw",
-    "ooottu"
-  ];
-
-  const board = [
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-    ["", "", "", "", ""],
-    ["", "", "", "", ""]
-  ];
-
-  const shuffledDice = shuffleDice(dice);
-
-  for (let row = 0; row < boardLength; row++) {
-    for (let col = 0; col < boardLength; col++) {
-      debugger;
-      let dice = shuffledDice.shift();
-
-      let face = randomlySelectedFace(dice);
-      const tileData = new TileData(face, row, col);
-      board[row][col] = tileData;
-    }
-  }
-  return board;
-};
+/**
+ *  Split a string to an equal [size]
+ *  @param size : 'size of the chunk' 
+ */
 String.prototype.chunk = function (size) {
   return [].concat.apply([],
     this.split('').map(function (x, i) { return i % size ? [] : this.slice(i, i + size) }, this)
   )
 }
 
+/**
+ *  Randomize a string 
+ */
+String.prototype.shuffle = function () {
+  var a = this.split(""),
+    n = a.length;
 
+  for (var i = n - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = a[i];
+    a[i] = a[j];
+    a[j] = tmp;
+  }
+  return a.join("");
+}
+
+
+/**
+ * Generate a random 2D board of size [n x n]
+ * @param boardData : 'string'
+ * @param boardSize : integer number
+*/
 export const shuffleBoard = (boardData, boardSize) => {
-  //  Create 1D array with dice
-  //  Shuffle the dice
-  //  Create 2D array with an empty board
-  //  Randomly select from the 1D array
-  //  Insert in the board and randomly pick a face
-
-  const dice = boardData.chunk(boardSize);
-
+  // Shuffle the board data
+  // Divide into chunks of equal size
+  // Create a 2D array of n-size with the chunk data
   const board = [];
-  for (var row = 0; row < boardSize; row++) {
-    var cols = [];
-    var diceRow = dice[row];
+  
+  if (boardData && boardSize) {
 
-    for (var col = 0; col < boardSize; col++) {
-      let face = diceRow[col];
-      const tileData = new TileData(face, row, col);
-      cols.push(tileData);
+    let strLength = boardData.length;
+
+    if (strLength / boardSize != boardSize) return [];
+
+    boardData = boardData.shuffle();
+    const dice = boardData.chunk(boardSize);
+
+    for (var row = 0; row < boardSize; row++) {
+      var cols = [];
+      var diceRow = dice[row];
+
+      for (var col = 0; col < boardSize; col++) {
+        let face = diceRow[col];
+        const tileData = new TileData(face, row, col);
+        cols.push(tileData);
+      }
+      board.push(cols);
     }
-    board.push(cols);
   }
 
   return board;
 };
 
+/**
+* 
+*/
 export const copyBoard = board => {
   const copiedBoard = board.map(row => {
     return row.map(tile => {
@@ -135,16 +93,4 @@ export const isAdjacent = (tile1, tile2) => {
   } else {
     return false;
   }
-};
-
-export const calculateScore = word => {
-  const score = word.length - 2;
-
-  if (score < 1) {
-    return 1;
-  }
-  if (score > 6) {
-    return 6;
-  }
-  return score;
 };

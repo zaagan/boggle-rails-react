@@ -4,7 +4,7 @@ This is a [Ruby on Rails](https://rubyonrails.org/) and [React.js](https://react
 
 
 
-[Demo Link on Heroku](https://ruby-react-boggle.herokuapp.com/)
+[Check out the demo on Heroku](https://ruby-react-boggle.herokuapp.com/)
 
 
 
@@ -44,7 +44,7 @@ $ bundle install
 
 
 
-**Step 4:** Install the necessary node packages:
+**Step 3:** Install the necessary node packages:
 
 ```bash
 $ yarn install or 
@@ -53,7 +53,7 @@ $ npm install
 
 
 
-**Step 5:** Run the server:
+**Step 4:** Run the server:
 
 ```bash
 $ rails server
@@ -81,10 +81,18 @@ Basically, The player searches for words that can be constructed from the letter
 
 #### Testing the Rails APIs
 
-You can test the Rails API by executing the following code, in a terminal window, at the root of the (**/boggle-rails-react**) project:
+You can test the Rails API by executing the following code in a terminal window, at the root of the (**/boggle-rails-react**) project:
 
 ```bash
 $ bundle exec rspec
+```
+
+
+
+#### Testing JavaScript
+
+```bash
+$ yarn test
 ```
 
 
@@ -100,6 +108,12 @@ $ bundle exec rspec
 ##### Stage 1 Preview
 
 ![Stage 1](resources/stage1.png)
+
+
+
+
+
+
 
 ## License
 
