@@ -33,8 +33,7 @@ export const initialState = {
 };
 
 const game = (state = initialState, action) => {
-
-  debugger;
+  
   switch (action.type) {
     case NEW_GAME_INIT:
       

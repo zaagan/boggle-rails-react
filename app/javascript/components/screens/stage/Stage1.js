@@ -6,7 +6,9 @@ import {
   shuffleBoard,
   copyBoard,
   isTileEqual,
-  isAdjacent
+  isAdjacent,
+  toggleHints,
+  clearHints
 } from "../../../constants/gameUtil";
 import Board from "../../common/Board";
 import ScoreBox from "../../common/ScoreBox";
@@ -79,28 +81,52 @@ class Stage1 extends Component {
   // 3. render the board with updated tile so it renders as active
 
   handleClick(rowId, columnId) {
+
     const selectedTile = this.state.board[rowId][columnId];
     const lastSelectedTile = this.state.currentWordPosition[
       this.state.currentWordPosition.length - 1
     ];
+
+    debugger;
     if (selectedTile.selected) {
+
       // Check if selectedTile is last tile
       if (isTileEqual(selectedTile, lastSelectedTile)) {
+
         // Unselected selectedTile and remove from currentWordPosition
         // Also update the board to set the tile to unselected
-        const newBoard = copyBoard(this.state.board);
+        let newBoard = copyBoard(this.state.board);
+
         newBoard[rowId][columnId].selected = false;
+
+
+        let currentPosition = this.state.currentWordPosition.slice(0, -1);
+        if (currentPosition.length <= 0) {
+          newBoard = clearHints(newBoard);
+        } else {
+          let currentRowId = currentPosition[currentPosition.length - 1].rowId;
+          let currentColId = currentPosition[currentPosition.length - 1].columnId;
+          newBoard = toggleHints(newBoard, currentRowId, currentColId);
+        }
+
+
+        // newBoard[rowId][columnId].selected = false;
+
         this.setState({
           currentWord: this.state.currentWord.slice(0, -1),
           board: newBoard,
-          currentWordPosition: this.state.currentWordPosition.slice(0, -1)
+          currentWordPosition: currentPosition
         });
       }
     } else {
       if (!lastSelectedTile || isAdjacent(selectedTile, lastSelectedTile)) {
         // Select the tile
-        const newBoard = copyBoard(this.state.board);
+        let newBoard = copyBoard(this.state.board);
+
         newBoard[rowId][columnId].selected = true;
+
+        newBoard = toggleHints(newBoard, rowId, columnId);
+
         this.setState({
           // update current word with selected tile
           currentWord: this.state.currentWord.concat(

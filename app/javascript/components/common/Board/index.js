@@ -14,6 +14,7 @@ const Board = props => {
               return (
                 <Tile
                   extraClass={"tile-" + board.length}
+                  hint={tile.hint}
                   selected={tile.selected}
                   letter={tile.letter}
                   key={tile.columnId}

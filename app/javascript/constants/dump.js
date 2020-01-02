@@ -81,7 +81,7 @@ export const shuffleBoardOld = () => {
 
     for (let row = 0; row < boardLength; row++) {
         for (let col = 0; col < boardLength; col++) {
-            debugger;
+            
             let dice = shuffledDice.shift();
 
             let face = randomlySelectedFace(dice);
